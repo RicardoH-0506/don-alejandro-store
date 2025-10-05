@@ -3,12 +3,6 @@ import { CalendarIcon } from '@heroicons/react/24/outline'
 import { lusitana } from '@/app/ui/fonts'
 import { fetchRevenue } from '@/app/lib/data'
 
-// This component is representational only.
-// For data visualization UI, check out:
-// https://www.tremor.so/
-// https://www.chartjs.org/
-// https://airbnb.io/visx/
-
 export default async function RevenueChart () {
   const revenue = await fetchRevenue()
   const chartHeight = 350
@@ -21,7 +15,7 @@ export default async function RevenueChart () {
   return (
     <div className='w-full md:col-span-4'>
       <h2 className={`${lusitana.className} mb-4 text-xl md:text-2xl`}>
-        Recent Revenue
+        Ingresos Recientes
       </h2>
 
       <div className='rounded-xl bg-gray-50 p-4'>
@@ -38,7 +32,7 @@ export default async function RevenueChart () {
           {revenue.map((month) => (
             <div key={month.month} className='flex flex-col items-center gap-2'>
               <div
-                className='w-full rounded-md bg-blue-300'
+                className='w-full rounded-md bg-orange-300'
                 style={{
                   height: `${(chartHeight / topLabel) * month.revenue}px`,
                 }}
@@ -51,7 +45,7 @@ export default async function RevenueChart () {
         </div>
         <div className='flex items-center pb-2 pt-6'>
           <CalendarIcon className='h-5 w-5 text-gray-500' />
-          <h3 className='ml-2 text-sm text-gray-500 '>Last 12 months</h3>
+          <h3 className='ml-2 text-sm text-gray-500 '>Últimos 12 meses</h3>
         </div>
       </div>
     </div>
